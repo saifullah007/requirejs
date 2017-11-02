@@ -12,7 +12,15 @@ var requirejs, require, define;
     var req, s, head, baseElement, dataMain, src,
         interactiveScript, currentlyAddingScript, mainScript, subPath,
         version = '2.3.5',
+        /**
+         * Regex to match comments like : )// and /*\*\/
+         * 
+         */
         commentRegExp = /\/\*[\s\S]*?\*\/|([^:"'=]|^)\/\/.*$/mg,
+        /**
+         * Matches strings like
+         * "\srequire(\"something\")"
+         */
         cjsRequireRegExp = /[^.]\s*require\s*\(\s*["']([^'"\s]+)["']\s*\)/g,
         jsSuffixRegExp = /\.js$/,
         currDirRegExp = /^\.\//,
